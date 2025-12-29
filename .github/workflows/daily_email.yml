@@ -5,9 +5,9 @@ on:
     - cron: "30 4 * * *"   # Every day at 10:00 AM IST
   workflow_dispatch:        # Allow manual run too
 
-jobs:
-  send-daily-email:
-    runs-on: ubuntu-latest
+# jobs:
+#   send-daily-email:
+#     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
@@ -21,8 +21,8 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Run email script
-        env:
-          EMAIL_USER: ${{ secrets.EMAIL_USER }}
-          EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
+      # - name: Run email script
+      #   env:
+      #     EMAIL_USER: ${{ secrets.EMAIL_USER }}
+      #     EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
         run: python main.py
